@@ -1,0 +1,43 @@
+=== Load Balancer Simulation Log ===
+Task Time Range: 10 - 100 cycles
+Starting Queue Size: 1000
+Initial Servers: 10
+
+--- Simulation Events ---
+[Cycle 5] Added server 10 (Total: 11)
+[Cycle 10] Added server 11 (Total: 12)
+[Cycle 15] Added server 12 (Total: 13)
+[Cycle 1000] Status - Queue: 902, Servers: 13, Completed: 229
+[Cycle 1500] Server 10 completed request
+[Cycle 2000] Status - Queue: 800, Servers: 13, Completed: 472
+[Cycle 3000] Status - Queue: 703, Servers: 13, Completed: 716
+[Cycle 3537] Removed server 2 (Total: 12)
+[Cycle 4000] Server 3 completed request
+[Cycle 4000] Status - Queue: 604, Servers: 12, Completed: 951
+[Cycle 4117] Removed server 10 (Total: 11)
+[Cycle 4500] Server 11 assigned request (Type: P, Time: 45)
+[Cycle 4993] Removed server 7 (Total: 10)
+[Cycle 5000] Server 9 assigned request (Type: P, Time: 77)
+[Cycle 5000] Status - Queue: 547, Servers: 10, Completed: 1152
+[Cycle 5500] Server 12 assigned request (Type: S, Time: 29)
+[Cycle 6000] Status - Queue: 520, Servers: 10, Completed: 1339
+[Cycle 6800] Removed server 4 (Total: 9)
+[Cycle 7000] Status - Queue: 495, Servers: 9, Completed: 1515
+[Cycle 8000] Status - Queue: 495, Servers: 9, Completed: 1673
+[Cycle 9000] Status - Queue: 466, Servers: 9, Completed: 1835
+[Cycle 9590] Removed server 12 (Total: 8)
+[Cycle 10000] Server 0 completed request
+[Cycle 10000] Status - Queue: 442, Servers: 8, Completed: 2003
+
+=== Simulation Summary ===
+Total Cycles: 10000
+Task Time Range: 10 - 100 cycles
+Remaining Queue Size: 442
+Active Servers: 8
+Idle Servers: 1
+Busy Servers: 7
+Total Requests Generated: 2452
+Completed Requests: 2003
+Rejected Requests: 0
+Average Requests per Cycle: 0.2452
+Completion Rate: 81.6884%
