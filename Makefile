@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Werror -std=c++11
 TARGET = loadbalancer
 
 # Source files
-SOURCES = main.cpp Request.cpp WebServer.cpp LoadBalancer.cpp
+SOURCES = main.cpp Request.cpp WebServer.cpp LoadBalancer.cpp Config.cpp
 
 # Object files
 OBJECTS = $(SOURCES:.cpp=.o)

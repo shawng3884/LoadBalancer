@@ -3,10 +3,12 @@
 
 #include "WebServer.h"
 #include "Request.h"
+#include "Config.h"
 #include <queue>
 #include <vector>
 #include <string>
 #include <fstream>
+#include <set>
 
 /**
  * @class LoadBalancer
@@ -25,6 +27,7 @@ private:
     int maxTaskTime;                      ///< Maximum task time
     int waitCycles;                       ///< Cycles to wait after server change
     int cyclesSinceChange;                ///< Cycles since last server change
+    std::set<std::string> blockedIPRanges; ///< Blocked IP ranges for firewall
 
 public:
     /**
@@ -102,6 +105,19 @@ public:
      * @return Number of rejected requests
      */
     int getRejectedRequests() const;
+
+    /**
+     * @brief Add blocked IP range
+     * @param ipRange IP range prefix to block
+     */
+    void addBlockedIPRange(const std::string& ipRange);
+
+    /**
+     * @brief Check if IP is blocked
+     * @param ip IP address to check
+     * @return true if blocked, false otherwise
+     */
+    bool isIPBlocked(const std::string& ip) const;
 };
 
 #endif

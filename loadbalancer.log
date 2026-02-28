@@ -1,43 +1,52 @@
 === Load Balancer Simulation Log ===
 Task Time Range: 10 - 100 cycles
-Starting Queue Size: 1000
+Starting Queue Size: 998
 Initial Servers: 10
+Blocked IP Ranges: 10.0.0. 172. 192.168.1. 
 
 --- Simulation Events ---
 [Cycle 5] Added server 10 (Total: 11)
+[Cycle 9] New request added to queue (Type: P, Time: 76, From: 222.61.138.109)
 [Cycle 10] Added server 11 (Total: 12)
 [Cycle 15] Added server 12 (Total: 13)
-[Cycle 1000] Status - Queue: 902, Servers: 13, Completed: 229
-[Cycle 1500] Server 10 completed request
-[Cycle 2000] Status - Queue: 800, Servers: 13, Completed: 472
-[Cycle 3000] Status - Queue: 703, Servers: 13, Completed: 716
-[Cycle 3537] Removed server 2 (Total: 12)
-[Cycle 4000] Server 3 completed request
-[Cycle 4000] Status - Queue: 604, Servers: 12, Completed: 951
-[Cycle 4117] Removed server 10 (Total: 11)
-[Cycle 4500] Server 11 assigned request (Type: P, Time: 45)
-[Cycle 4993] Removed server 7 (Total: 10)
-[Cycle 5000] Server 9 assigned request (Type: P, Time: 77)
-[Cycle 5000] Status - Queue: 547, Servers: 10, Completed: 1152
-[Cycle 5500] Server 12 assigned request (Type: S, Time: 29)
-[Cycle 6000] Status - Queue: 520, Servers: 10, Completed: 1339
-[Cycle 6800] Removed server 4 (Total: 9)
-[Cycle 7000] Status - Queue: 495, Servers: 9, Completed: 1515
-[Cycle 8000] Status - Queue: 495, Servers: 9, Completed: 1673
-[Cycle 9000] Status - Queue: 466, Servers: 9, Completed: 1835
-[Cycle 9590] Removed server 12 (Total: 8)
-[Cycle 10000] Server 0 completed request
-[Cycle 10000] Status - Queue: 442, Servers: 8, Completed: 2003
+[Cycle 1000] Status - Queue: 912, Servers: 13, Total Completed: 230
+[Cycle 1380] New request added to queue (Type: P, Time: 38, From: 188.106.49.133)
+[Cycle 2000] Status - Queue: 799, Servers: 13, Total Completed: 474
+[Cycle 2825] New request added to queue (Type: P, Time: 83, From: 66.178.203.134)
+[Cycle 3000] Status - Queue: 706, Servers: 13, Total Completed: 714
+[Cycle 3810] BLOCKED request from 172.34.78.104 (Type: P)
+[Cycle 3829] Removed server 0 (Total: 12)
+[Cycle 4000] Status - Queue: 641, Servers: 12, Total Completed: 936
+[Cycle 4101] New request added to queue (Type: S, Time: 22, From: 57.176.176.41)
+[Cycle 4555] Removed server 8 (Total: 11)
+[Cycle 5000] Status - Queue: 568, Servers: 11, Total Completed: 1148
+[Cycle 5219] Removed server 1 (Total: 10)
+[Cycle 5531] New request added to queue (Type: P, Time: 21, From: 31.201.84.75)
+[Cycle 5873] BLOCKED request from 172.181.36.157 (Type: S)
+[Cycle 5885] BLOCKED request from 172.128.206.7 (Type: S)
+[Cycle 6000] Status - Queue: 536, Servers: 10, Total Completed: 1329
+[Cycle 6565] BLOCKED request from 172.228.140.61 (Type: S)
+[Cycle 6849] New request added to queue (Type: P, Time: 84, From: 73.120.245.89)
+[Cycle 7000] Status - Queue: 518, Servers: 10, Total Completed: 1498
+[Cycle 7508] BLOCKED request from 172.169.33.192 (Type: P)
+[Cycle 7676] Removed server 7 (Total: 9)
+[Cycle 8000] Status - Queue: 479, Servers: 9, Total Completed: 1675
+[Cycle 8231] New request added to queue (Type: S, Time: 13, From: 56.139.141.206)
+[Cycle 8239] BLOCKED request from 172.108.9.97 (Type: S)
+[Cycle 9000] Status - Queue: 474, Servers: 9, Total Completed: 1837
+[Cycle 9465] New request added to queue (Type: S, Time: 44, From: 166.100.44.159)
+[Cycle 9908] Removed server 10 (Total: 8)
+[Cycle 10000] Status - Queue: 451, Servers: 8, Total Completed: 2004
 
 === Simulation Summary ===
 Total Cycles: 10000
 Task Time Range: 10 - 100 cycles
-Remaining Queue Size: 442
+Remaining Queue Size: 451
 Active Servers: 8
-Idle Servers: 1
-Busy Servers: 7
-Total Requests Generated: 2452
-Completed Requests: 2003
-Rejected Requests: 0
-Average Requests per Cycle: 0.2452
-Completion Rate: 81.6884%
+Idle Servers: 0
+Busy Servers: 8
+Total Requests Generated: 2463
+Completed Requests: 2004
+Rejected Requests: 8
+Average Requests per Cycle: 0.2463
+Completion Rate: 81.3642%

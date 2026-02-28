@@ -1,4 +1,5 @@
 #include "LoadBalancer.h"
+#include "Colors.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -20,13 +21,31 @@ LoadBalancer::~LoadBalancer() {
 }
 
 void LoadBalancer::addRequest(const Request& req) {
+    // Check if IP is blocked
+    if (isIPBlocked(req.ipIn)) {
+        rejectedRequests++;
+        if (logFile.is_open() && rejectedRequests <= 20) {
+            logFile << "[Cycle " << currentCycle << "] BLOCKED request from " << req.ipIn 
+                    << " (Type: " << req.jobType << ")" << std::endl;
+        }
+        return;
+    }
+    
     requestQueue.push(req);
     totalRequests++;
+    
+    // Log some random request additions
+    if (logFile.is_open() && totalRequests % 200 == 0) {
+        logFile << "[Cycle " << currentCycle << "] New request added to queue (Type: " 
+                << req.jobType << ", Time: " << req.time << ", From: " << req.ipIn << ")" << std::endl;
+    }
 }
 
 void LoadBalancer::processCycle() {
     currentCycle++;
     cyclesSinceChange++;
+
+    int assignedThisCycle = 0;
 
     // Assign requests to idle servers
     for (auto server : servers) {
@@ -34,9 +53,13 @@ void LoadBalancer::processCycle() {
             Request req = requestQueue.front();
             requestQueue.pop();
             server->assignRequest(req);
-            if (logFile.is_open() && currentCycle % 500 == 0) {
+            assignedThisCycle++;
+            
+            // Log some assignments for demonstration
+            if (logFile.is_open() && assignedThisCycle <= 3 && currentCycle % 1000 == 0) {
                 logFile << "[Cycle " << currentCycle << "] Server " << server->getId() 
-                        << " assigned request (Type: " << req.jobType << ", Time: " << req.time << ")" << std::endl;
+                        << " assigned request (Type: " << req.jobType << ", Time: " << req.time 
+                        << ", From: " << req.ipIn << ")" << std::endl;
             }
         }
     }
@@ -45,17 +68,14 @@ void LoadBalancer::processCycle() {
     for (auto server : servers) {
         if (server->processCycle()) {
             completedRequests++;
-            if (logFile.is_open() && currentCycle % 500 == 0) {
-                logFile << "[Cycle " << currentCycle << "] Server " << server->getId() 
-                        << " completed request" << std::endl;
-            }
         }
     }
 
-    // Periodic status logging
+    // Periodic status logging with counts
     if (logFile.is_open() && currentCycle % 1000 == 0) {
         logFile << "[Cycle " << currentCycle << "] Status - Queue: " << requestQueue.size() 
-                << ", Servers: " << servers.size() << ", Completed: " << completedRequests << std::endl;
+                << ", Servers: " << servers.size() 
+                << ", Total Completed: " << completedRequests << std::endl;
     }
 
     // Dynamic server management
@@ -80,6 +100,8 @@ void LoadBalancer::addServer() {
         logFile << "[Cycle " << currentCycle << "] Added server " << newId 
                 << " (Total: " << servers.size() << ")" << std::endl;
     }
+    std::cout << Colors::MAGENTA << "[Cycle " << currentCycle << "] Added server " << newId 
+              << " (Total: " << servers.size() << ")" << Colors::RESET << std::endl;
 }
 
 void LoadBalancer::removeServer() {
@@ -93,6 +115,8 @@ void LoadBalancer::removeServer() {
                     logFile << "[Cycle " << currentCycle << "] Removed server " << removedId 
                             << " (Total: " << servers.size() << ")" << std::endl;
                 }
+                std::cout << Colors::RED << "[Cycle " << currentCycle << "] Removed server " << removedId 
+                          << " (Total: " << servers.size() << ")" << Colors::RESET << std::endl;
                 break;
             }
         }
@@ -123,6 +147,16 @@ void LoadBalancer::openLog(const std::string& filename) {
         logFile << "Task Time Range: " << minTaskTime << " - " << maxTaskTime << " cycles" << std::endl;
         logFile << "Starting Queue Size: " << requestQueue.size() << std::endl;
         logFile << "Initial Servers: " << servers.size() << std::endl;
+        
+        // Log blocked IP ranges
+        if (!blockedIPRanges.empty()) {
+            logFile << "Blocked IP Ranges: ";
+            for (const auto& range : blockedIPRanges) {
+                logFile << range << " ";
+            }
+            logFile << std::endl;
+        }
+        
         logFile << "\n--- Simulation Events ---" << std::endl;
     }
 }
@@ -162,4 +196,17 @@ int LoadBalancer::getCompletedRequests() const {
 
 int LoadBalancer::getRejectedRequests() const {
     return rejectedRequests;
+}
+
+void LoadBalancer::addBlockedIPRange(const std::string& ipRange) {
+    blockedIPRanges.insert(ipRange);
+}
+
+bool LoadBalancer::isIPBlocked(const std::string& ip) const {
+    for (const auto& range : blockedIPRanges) {
+        if (ip.find(range) == 0) {
+            return true;
+        }
+    }
+    return false;
 }
