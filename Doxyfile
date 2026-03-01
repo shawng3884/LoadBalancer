@@ -1,0 +1,34 @@
+# Doxyfile for Load Balancer Project
+
+# Project information
+PROJECT_NAME           = "Load Balancer Simulation"
+PROJECT_NUMBER         = "1.0"
+PROJECT_BRIEF          = "A load balancing simulation system with dynamic server management"
+
+# Input configuration
+INPUT                  = . 
+FILE_PATTERNS          = *.cpp *.h
+RECURSIVE              = NO
+EXCLUDE                = 
+
+# Output configuration
+GENERATE_HTML          = YES
+HTML_OUTPUT            = docs/html
+GENERATE_LATEX         = NO
+
+# Extraction settings
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+
+# Documentation settings
+JAVADOC_AUTOBRIEF      = YES
+OPTIMIZE_OUTPUT_FOR_C  = NO
+
+# Diagram settings
+HAVE_DOT               = NO
+
+# Other settings
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES

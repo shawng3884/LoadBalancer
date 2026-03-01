@@ -34,10 +34,11 @@ void LoadBalancer::addRequest(const Request& req) {
     requestQueue.push(req);
     totalRequests++;
     
-    // Log some random request additions
-    if (logFile.is_open() && totalRequests % 200 == 0) {
+    // Log every 100th request added
+    if (logFile.is_open() && totalRequests % 100 == 0) {
         logFile << "[Cycle " << currentCycle << "] New request added to queue (Type: " 
-                << req.jobType << ", Time: " << req.time << ", From: " << req.ipIn << ")" << std::endl;
+                << req.jobType << ", Time: " << req.time << ", From: " << req.ipIn 
+                << ") - Total: " << totalRequests << std::endl;
     }
 }
 
