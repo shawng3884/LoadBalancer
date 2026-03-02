@@ -5,7 +5,8 @@
 
 LoadBalancer::LoadBalancer(int initialServers, int minTime, int maxTime, int waitCycles)
     : currentCycle(0), totalRequests(0), completedRequests(0), rejectedRequests(0),
-      minTaskTime(minTime), maxTaskTime(maxTime), waitCycles(waitCycles), cyclesSinceChange(0) {
+      minTaskTime(minTime), maxTaskTime(maxTime), waitCycles(waitCycles), cyclesSinceChange(0),
+      peakQueueSize(0), startingQueueSize(0), endingQueueSize(0) {
     for (int i = 0; i < initialServers; i++) {
         servers.push_back(new WebServer(i));
     }
@@ -70,6 +71,12 @@ void LoadBalancer::processCycle() {
         if (server->processCycle()) {
             completedRequests++;
         }
+    }
+
+    // Track peak queue size
+    int currentQueueSize = requestQueue.size();
+    if (currentQueueSize > peakQueueSize) {
+        peakQueueSize = currentQueueSize;
     }
 
     // Periodic status logging with counts
@@ -146,7 +153,10 @@ void LoadBalancer::openLog(const std::string& filename) {
     if (logFile.is_open()) {
         logFile << "=== Load Balancer Simulation Log ===" << std::endl;
         logFile << "Task Time Range: " << minTaskTime << " - " << maxTaskTime << " cycles" << std::endl;
-        logFile << "Starting Queue Size: " << requestQueue.size() << std::endl;
+        
+        // Store starting queue size
+        startingQueueSize = requestQueue.size();
+        logFile << "Starting Queue Size: " << startingQueueSize << std::endl;
         logFile << "Initial Servers: " << servers.size() << std::endl;
         
         // Log blocked IP ranges
@@ -163,11 +173,17 @@ void LoadBalancer::openLog(const std::string& filename) {
 }
 
 void LoadBalancer::writeSummary() {
+    // Store ending queue size
+    endingQueueSize = requestQueue.size();
+    
     if (logFile.is_open()) {
         logFile << "\n=== Simulation Summary ===" << std::endl;
         logFile << "Total Cycles: " << currentCycle << std::endl;
-        logFile << "Task Time Range: " << minTaskTime << " - " << maxTaskTime << " cycles" << std::endl;
-        logFile << "Remaining Queue Size: " << requestQueue.size() << std::endl;
+        logFile << "Starting Task Time Range: " << minTaskTime << " - " << maxTaskTime << " cycles" << std::endl;
+        logFile << "Ending Task Time Range: " << minTaskTime << " - " << maxTaskTime << " cycles" << std::endl;
+        logFile << "Starting Queue Size: " << startingQueueSize << std::endl;
+        logFile << "Ending Queue Size: " << endingQueueSize << std::endl;
+        logFile << "Peak Queue Size: " << peakQueueSize << std::endl;
         logFile << "Active Servers: " << servers.size() << std::endl;
         
         // Count idle vs busy servers

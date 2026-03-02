@@ -1,6 +1,6 @@
 === Load Balancer Simulation Log ===
 Task Time Range: 10 - 100 cycles
-Starting Queue Size: 997
+Starting Queue Size: 1000
 Initial Servers: 10
 Blocked IP Ranges: 10.0.0. 172. 192.168.1. 
 
@@ -8,56 +8,56 @@ Blocked IP Ranges: 10.0.0. 172. 192.168.1.
 [Cycle 5] Added server 10 (Total: 11)
 [Cycle 10] Added server 11 (Total: 12)
 [Cycle 15] Added server 12 (Total: 13)
-[Cycle 19] New request added to queue (Type: P, Time: 93, From: 38.219.224.185) - Total: 1000
-[Cycle 773] New request added to queue (Type: S, Time: 15, From: 97.28.124.129) - Total: 1100
-[Cycle 1000] Server 2 assigned request (Type: S, Time: 73, From: 66.255.16.194)
-[Cycle 1000] Server 4 assigned request (Type: P, Time: 32, From: 133.71.109.71)
-[Cycle 1000] Status - Queue: 899, Servers: 13, Total Completed: 226
-[Cycle 1374] New request added to queue (Type: S, Time: 23, From: 246.229.184.189) - Total: 1200
-[Cycle 2000] Status - Queue: 815, Servers: 13, Total Completed: 465
-[Cycle 2051] New request added to queue (Type: S, Time: 43, From: 79.55.115.81) - Total: 1300
-[Cycle 2589] BLOCKED request from 172.61.33.207 (Type: S)
-[Cycle 2678] New request added to queue (Type: S, Time: 69, From: 149.110.40.187) - Total: 1400
-[Cycle 2794] BLOCKED request from 172.122.194.24 (Type: P)
-[Cycle 3000] Status - Queue: 751, Servers: 13, Total Completed: 696
-[Cycle 3256] New request added to queue (Type: P, Time: 81, From: 252.188.142.152) - Total: 1500
-[Cycle 3990] New request added to queue (Type: P, Time: 28, From: 177.43.13.11) - Total: 1600
-[Cycle 4000] Status - Queue: 656, Servers: 13, Total Completed: 933
-[Cycle 4080] Removed server 1 (Total: 12)
-[Cycle 4513] Removed server 5 (Total: 11)
-[Cycle 4728] New request added to queue (Type: S, Time: 43, From: 130.205.50.14) - Total: 1700
-[Cycle 5000] Status - Queue: 587, Servers: 11, Total Completed: 1148
-[Cycle 5295] New request added to queue (Type: S, Time: 39, From: 145.160.24.192) - Total: 1800
-[Cycle 5460] BLOCKED request from 172.252.133.174 (Type: S)
-[Cycle 5931] New request added to queue (Type: P, Time: 12, From: 44.52.176.119) - Total: 1900
-[Cycle 6000] Status - Queue: 554, Servers: 11, Total Completed: 1346
-[Cycle 6127] Removed server 7 (Total: 10)
-[Cycle 6595] New request added to queue (Type: S, Time: 78, From: 14.0.198.180) - Total: 2000
-[Cycle 7000] Status - Queue: 520, Servers: 10, Total Completed: 1521
-[Cycle 7370] New request added to queue (Type: S, Time: 44, From: 234.152.182.145) - Total: 2100
-[Cycle 7377] Removed server 2 (Total: 9)
-[Cycle 7425] BLOCKED request from 172.66.171.145 (Type: P)
-[Cycle 7853] BLOCKED request from 172.222.208.239 (Type: S)
-[Cycle 8000] Server 4 assigned request (Type: S, Time: 25, From: 115.240.250.177)
-[Cycle 8000] Status - Queue: 470, Servers: 9, Total Completed: 1703
-[Cycle 8119] New request added to queue (Type: S, Time: 88, From: 116.133.99.168) - Total: 2200
-[Cycle 8403] BLOCKED request from 172.102.238.105 (Type: P)
-[Cycle 8703] New request added to queue (Type: P, Time: 81, From: 101.124.95.185) - Total: 2300
-[Cycle 9000] Server 9 assigned request (Type: P, Time: 40, From: 204.79.107.85)
-[Cycle 9000] Status - Queue: 480, Servers: 9, Total Completed: 1861
-[Cycle 9384] New request added to queue (Type: S, Time: 34, From: 239.188.8.185) - Total: 2400
-[Cycle 9926] Removed server 12 (Total: 8)
-[Cycle 10000] Status - Queue: 441, Servers: 8, Total Completed: 2022
+[Cycle 684] New request added to queue (Type: S, Time: 10, From: 84.76.106.193) - Total: 1100
+[Cycle 1000] Status - Queue: 921, Servers: 13, Total Completed: 234
+[Cycle 1258] New request added to queue (Type: P, Time: 72, From: 249.191.240.66) - Total: 1200
+[Cycle 1917] New request added to queue (Type: P, Time: 42, From: 28.253.11.104) - Total: 1300
+[Cycle 2000] Server 12 assigned request (Type: S, Time: 45, From: 174.126.121.142)
+[Cycle 2000] Status - Queue: 822, Servers: 13, Total Completed: 470
+[Cycle 2643] New request added to queue (Type: P, Time: 22, From: 99.132.110.94) - Total: 1400
+[Cycle 3000] Status - Queue: 734, Servers: 13, Total Completed: 704
+[Cycle 3354] New request added to queue (Type: P, Time: 16, From: 139.214.27.152) - Total: 1500
+[Cycle 3743] Removed server 12 (Total: 12)
+[Cycle 4000] Status - Queue: 628, Servers: 12, Total Completed: 949
+[Cycle 4101] New request added to queue (Type: S, Time: 41, From: 97.64.228.3) - Total: 1600
+[Cycle 4416] Removed server 3 (Total: 11)
+[Cycle 4759] New request added to queue (Type: S, Time: 40, From: 87.154.126.188) - Total: 1700
+[Cycle 5000] Server 0 assigned request (Type: P, Time: 13, From: 153.226.88.155)
+[Cycle 5000] Status - Queue: 565, Servers: 11, Total Completed: 1162
+[Cycle 5387] New request added to queue (Type: S, Time: 49, From: 33.24.198.49) - Total: 1800
+[Cycle 5506] Removed server 7 (Total: 10)
+[Cycle 5735] BLOCKED request from 172.8.53.158 (Type: P)
+[Cycle 6000] Status - Queue: 527, Servers: 10, Total Completed: 1353
+[Cycle 6055] New request added to queue (Type: S, Time: 35, From: 217.30.147.231) - Total: 1900
+[Cycle 6736] Removed server 5 (Total: 9)
+[Cycle 6740] New request added to queue (Type: P, Time: 68, From: 39.167.230.121) - Total: 2000
+[Cycle 6867] BLOCKED request from 172.36.117.210 (Type: S)
+[Cycle 7000] Server 1 assigned request (Type: S, Time: 48, From: 141.61.8.131)
+[Cycle 7000] Server 10 assigned request (Type: P, Time: 50, From: 199.245.142.211)
+[Cycle 7000] Status - Queue: 495, Servers: 9, Total Completed: 1543
+[Cycle 7263] New request added to queue (Type: S, Time: 70, From: 84.104.179.181) - Total: 2100
+[Cycle 8000] Status - Queue: 485, Servers: 9, Total Completed: 1705
+[Cycle 8011] New request added to queue (Type: P, Time: 98, From: 111.53.2.240) - Total: 2200
+[Cycle 8671] New request added to queue (Type: P, Time: 43, From: 155.19.218.173) - Total: 2300
+[Cycle 8922] BLOCKED request from 172.45.148.123 (Type: S)
+[Cycle 9000] Status - Queue: 478, Servers: 9, Total Completed: 1867
+[Cycle 9327] New request added to queue (Type: S, Time: 93, From: 56.6.238.48) - Total: 2400
+[Cycle 9682] BLOCKED request from 172.121.38.5 (Type: P)
+[Cycle 9796] Removed server 9 (Total: 8)
+[Cycle 10000] Status - Queue: 458, Servers: 8, Total Completed: 2033
 
 === Simulation Summary ===
 Total Cycles: 10000
-Task Time Range: 10 - 100 cycles
-Remaining Queue Size: 441
+Starting Task Time Range: 10 - 100 cycles
+Ending Task Time Range: 10 - 100 cycles
+Starting Queue Size: 1000
+Ending Queue Size: 458
+Peak Queue Size: 992
 Active Servers: 8
 Idle Servers: 0
 Busy Servers: 8
-Total Requests Generated: 2471
-Completed Requests: 2022
-Rejected Requests: 9
-Average Requests per Cycle: 0.2471
-Completion Rate: 81.8292%
+Total Requests Generated: 2499
+Completed Requests: 2033
+Rejected Requests: 4
+Average Requests per Cycle: 0.2499
+Completion Rate: 81.3525%

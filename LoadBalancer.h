@@ -28,6 +28,9 @@ private:
     int waitCycles;                       ///< Cycles to wait after server change
     int cyclesSinceChange;                ///< Cycles since last server change
     std::set<std::string> blockedIPRanges; ///< Blocked IP ranges for firewall
+    int peakQueueSize;                    ///< Peak queue size during simulation
+    int startingQueueSize;                ///< Initial queue size
+    int endingQueueSize;                  ///< Final queue size
 
 public:
     /**
